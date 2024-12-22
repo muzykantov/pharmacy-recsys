@@ -11,7 +11,7 @@ spark.sparkContext.setLogLevel("ERROR")
 
 # Загрузка данных о продуктах
 products = spark.read.csv(
-    "../../data/products.csv", header=True, inferSchema=True
+    "data/products.csv", header=True, inferSchema=True
 ).withColumn("name", F.regexp_replace("name", r"(\(\d+\) )", ""))
 
 
@@ -51,7 +51,7 @@ class ModelALS:
 def main():
     # Инициализация и загрузка модели
     model_als = ModelALS()
-    model_als.load_model("../models/als_model_2024_12_15.model")
+    model_als.load_model("models/als_model_2024_12_15.model")
 
     # Пример использования модели
     test_user_id = 471

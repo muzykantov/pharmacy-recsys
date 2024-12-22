@@ -11,7 +11,7 @@ spark.sparkContext.setLogLevel("ERROR")
 
 # Загрузка данных о продуктах
 products = spark.read.csv(
-    "../../data/products.csv", header=True, inferSchema=True
+    "data/products.csv", header=True, inferSchema=True
 ).withColumn("name", F.regexp_replace("name", r"(\(\d+\) )", ""))
 
 
@@ -64,7 +64,7 @@ class ModelWord2Vec:
 def main():
     # Инициализация и загрузка модели
     model_w2v = ModelWord2Vec()
-    model_w2v.load_model("../models/word2vec_model_2024_12_15")
+    model_w2v.load_model("models/word2vec_model_2024_12_15")
 
     # Пример использования модели
     test_product_id = 33569

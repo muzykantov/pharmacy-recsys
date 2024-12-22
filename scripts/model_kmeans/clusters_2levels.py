@@ -9,13 +9,13 @@ spark.sparkContext.setLogLevel("ERROR")
 
 # Загрузка моделей и данных
 print("Загрузка моделей и данных...")
-w2v_model = Word2VecModel.load("../models/word2vec_model_2024_12_15")
+w2v_model = Word2VecModel.load("models/word2vec_model_2024_12_15")
 product_vectors = w2v_model.getVectors().withColumnRenamed(
     existing="word", new="product_id"
 )
 
 products = spark.read.csv(
-    "../../data/products.csv", header=True, inferSchema=True
+    "data/products.csv", header=True, inferSchema=True
 ).withColumn("name", F.regexp_replace("name", r"(\(\d+\) )", ""))
 
 

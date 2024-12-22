@@ -10,7 +10,7 @@ spark = SparkSession.builder.appName("PharmacyRecsys").getOrCreate()
 spark.sparkContext.setLogLevel("ERROR")
 
 # Загрузка данных
-data = spark.read.csv("../../data/sales.csv", header=True, inferSchema=True)
+data = spark.read.csv("data/sales.csv", header=True, inferSchema=True)
 
 # Подготовка данных
 # Преобразование contact_id в StringType и sale_date_date в DateType
@@ -72,5 +72,5 @@ print("Время обучения = " + str(time.time() - start))
 
 # Сохранение модели
 print("Сохранение модели...")
-model.save("../models/word2vec_model_2024_12_15")
+model.save("models/word2vec_model_2024_12_15")
 print("Модель успешно сохранена")

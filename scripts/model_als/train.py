@@ -11,7 +11,7 @@ spark = SparkSession.builder.appName("PharmacyRecsys").getOrCreate()
 spark.sparkContext.setLogLevel("ERROR")
 
 # Создание DataFrame
-data = spark.read.csv("../../data/sales.csv", header=True, inferSchema=True)
+data = spark.read.csv("data/sales.csv", header=True, inferSchema=True)
 data = (
     data.select("sale_date_date", "contact_id", "product_id", "quantity")
     .withColumn(
@@ -91,7 +91,7 @@ print("Время обучения = " + str(time.time() - start))
 
 # Сохранение модели
 print("\nСохранение модели...")
-model.save("../models/als_model_2024_12_15.model")
+model.save("models/als_model_2024_12_15.model")
 
 # Создание таблицы с реальными и предсказанными товарами
 print("\nПодготовка метрик качества...")

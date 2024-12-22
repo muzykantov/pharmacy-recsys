@@ -12,7 +12,7 @@ spark.sparkContext.setLogLevel("ERROR")
 
 # Загрузка данных о продуктах из CSV
 products = spark.read.csv(
-    "../data/products.csv", header=True, inferSchema=True
+    "data/products.csv", header=True, inferSchema=True
 ).withColumn("name", F.regexp_replace("name", r"(\(\d+\) )", ""))
 
 

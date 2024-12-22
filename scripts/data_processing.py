@@ -16,7 +16,7 @@ def print_execution_time(start_time):
 # Проверка структуры данных на маленьком наборе
 print("Проверка структуры данных...")
 start_time = time.time()
-data_small = pd.read_csv("../data/sales.csv", nrows=5)
+data_small = pd.read_csv("data/sales.csv", nrows=5)
 columns = data_small.columns.tolist()
 print("Доступные колонки:", columns)
 print_execution_time(start_time)
@@ -34,7 +34,7 @@ cols = [
     "brand_id",
     "quantity",
 ]
-data = pd.read_csv("../data/sales.csv", usecols=cols)
+data = pd.read_csv("data/sales.csv", usecols=cols)
 print("Информация о загруженных данных:")
 print(data.info(verbose=False))
 print_execution_time(start_time)
@@ -78,7 +78,7 @@ print_execution_time(start_time)
 # Сохранение очищенных данных
 print("\nСохранение очищенных данных...")
 start_time = time.time()
-data.to_csv("../data/sales.csv", index=False)
+data.to_csv("data/sales.csv", index=False)
 print("Данные сохранены в data/sales.csv")
 print_execution_time(start_time)
 
